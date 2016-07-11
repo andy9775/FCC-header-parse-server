@@ -17,7 +17,7 @@ function parseOs(userAgent) {
  * Parse out the user's prevered language
  *
  * Regex from: http://stackoverflow.com/a/9943330/2605221
- * 
+ *
  * @param  {[type]} lang [description]
  * @return {[type]}      [description]
  */
@@ -33,7 +33,7 @@ function parseLanguage(lang) {
  * @param  {Response} res - response object
  */
 function whoami(req, res) {
-  var ip = req.ip
+  var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   var userAgent = parseOs(req.headers['user-agent']);
   var lang = parseLanguage(req.headers['accept-language']);
 
