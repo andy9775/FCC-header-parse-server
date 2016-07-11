@@ -44,4 +44,14 @@ function whoami(req, res) {
   });
 }
 
-module.exports = whoami;
+/**
+ * Redirect requests to the github project directory
+ *
+ * @param  {Request} req - request object
+ * @param  {Response} res - response object
+ */
+function redirect(req, res){
+  res.redirect('https://github.com/andy9775/FCC-header-parse-server');
+}
+
+module.exports = {whoami, redirect};

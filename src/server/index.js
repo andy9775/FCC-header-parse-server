@@ -1,8 +1,10 @@
 var express = require('express');
-var whoami = require('./api');
+var api = require('./api');
 var app = express();
 
-app.get('/api/whoami/', whoami);
+app.get('/api/whoami/', api.whoami);
+
+app.get('/*', api.redirect);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function(err) {
